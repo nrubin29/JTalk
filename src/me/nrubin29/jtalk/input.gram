@@ -1,0 +1,21 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar for Hello World example
+ */
+
+grammar input;
+
+public <greeting> = (Hello | Goodbye);
+
+// public <goto> = Goto (Bar | Library | Blacksmith Workshop | Jail);
+
+// public <help> = Help;
+
+// public <map> = Map;
+
+// public <read> = Read;
+
+// public <talkto> = Talk to (M ae j | Blacksmith | Librarian | Shopkeeper | Customers | Patron);
+
+// public <inventory> = Inventory;
