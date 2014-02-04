@@ -1,6 +1,8 @@
 package me.nrubin29.jtalk;
 
 import edu.cmu.sphinx.frontend.util.Microphone;
+import edu.cmu.sphinx.jsgf.JSGFGrammar;
+import edu.cmu.sphinx.jsgf.rule.JSGFRule;
 import edu.cmu.sphinx.recognizer.Recognizer;
 import edu.cmu.sphinx.result.Result;
 import edu.cmu.sphinx.util.props.ConfigurationManager;
@@ -16,6 +18,13 @@ public class SphinxBridge {
         this.cm = new ConfigurationManager(SphinxBridge.class.getResource("input.config.xml"));
     	this.recognizer = (Recognizer) cm.lookup("recognizer");
     	this.microphone = (Microphone) cm.lookup("microphone");
+
+        try {
+            JSGFGrammar grammar = (JSGFGrammar) cm.lookup("jsgfGrammar");
+            grammar.getRuleGrammar().setRule("test", new JSGFRule(), true);
+            grammar.commitChanges();
+        }
+        catch (Exception e) { e.printStackTrace(); }
 
         recognizer.allocate();
 	}

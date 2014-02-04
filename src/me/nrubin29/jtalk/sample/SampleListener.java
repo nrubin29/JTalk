@@ -6,7 +6,7 @@ import me.nrubin29.jtalk.JTalk;
 public class SampleListener extends JListener {
 
     public SampleListener() {
-        super("(hello|goodbye)");
+        super("(hello|goodbye|testing)");
     }
 
     public void onSpeak(String[] args) {
